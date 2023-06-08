@@ -1,0 +1,39 @@
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.event-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-item {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.event-item > div {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+button {
+  font-size: 1.2em;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e53935;
+}
+
+button:active {
+  background-color: #c62828;
+}
