@@ -1,0 +1,17 @@
+<h1>Event Details Page</h1>
+<div class="event-container">
+  <div *ngFor="let detail of events" class="event-item">
+    <div>{{ detail.eventName }}</div>
+    <div>{{ detail.eventDescription }}</div>
+    <div>{{ detail.createdBy }}</div>
+    <div>{{ detail.eventcreatedDate }}</div>
+    <div>{{ detail.eventstartDate | date }}</div>
+    <div>{{ detail.eventendDate | date }}</div>
+    <div>{{ detail.eventType }}</div>
+    <div>{{ detail.eventLocation }}</div>
+    <div>{{ detail.price }}</div>
+    <button (click)="updateFavoriteStatus(1, detail.eventId)">
+      Add to Favorites
+    </button>
+  </div>
+</div>

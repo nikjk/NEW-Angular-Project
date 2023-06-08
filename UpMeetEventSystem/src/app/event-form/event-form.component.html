@@ -1,0 +1,44 @@
+<h1>Add Your Event</h1>
+<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="eventName">Event Name:</label>
+    <input id="eventName" type="text" formControlName="eventName" />
+  </div>
+  <div>
+    <label for="eventDescription">Description:</label>
+    <input
+      id="eventDescription"
+      type="text"
+      formControlName="eventDescription"
+    />
+  </div>
+  <div>
+    <label for="createdBy">Created By:</label>
+    <input id="createdBy" type="text" formControlName="createdBy" />
+  </div>
+  <div>
+    <label for="createdDate">Created Date:</label>
+    <input id="createdDate" type="date" formControlName="createdDate" />
+  </div>
+  <div>
+    <label for="eventStartDate">Event Date:</label>
+    <input id="eventStartDate" type="date" formControlName="eventStartDate" />
+  </div>
+  <div>
+    <label for="eventEndDate">Event End Date:</label>
+    <input id="eventEndtDate" type="date" formControlName="eventEndDate" />
+  </div>
+  <div>
+    <label for="eventType">Event Type:</label>
+    <input id="eventType" type="text" formControlName="eventType" />
+  </div>
+  <div>
+    <label for="eventLocation">Event Location:</label>
+    <input id="eventLocation" type="text" formControlName="eventLocation" />
+  </div>
+  <div>
+    <label for="price">Price per Person:</label>
+    <input id="price" type="number" formControlName="price" />
+  </div>
+  <button type="submit">Submit</button>
+</form>

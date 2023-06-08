@@ -21,7 +21,7 @@ namespace UpMeetEventAPI.Controllers
         }
 
         // GET: api/Events
-        [HttpGet]
+        [HttpGet("Events")]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
           if (_context.Events == null)
@@ -32,7 +32,7 @@ namespace UpMeetEventAPI.Controllers
         }
 
         // GET: api/Events/5
-        [HttpGet("{id}")]
+        [HttpGet("GetEvent/{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
           if (_context.Events == null)
@@ -51,38 +51,38 @@ namespace UpMeetEventAPI.Controllers
 
         // PUT: api/Events/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvent(int id, Event @event)
-        {
-            if (id != @event.EventId)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutEvent(int id, Event @event)
+        //{
+        //    if (id != @event.EventId)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(@event).State = EntityState.Modified;
+        //    _context.Entry(@event).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EventExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!EventExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Events
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("CreateEvent")]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
           if (_context.Events == null)
@@ -96,7 +96,7 @@ namespace UpMeetEventAPI.Controllers
         }
 
         // DELETE: api/Events/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteEvent/{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
             if (_context.Events == null)

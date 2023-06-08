@@ -21,7 +21,7 @@ namespace UpMeetEventAPI.Controllers
         }
 
         // GET: api/Favorites
-        [HttpGet]
+        [HttpGet("GetFavorites")]
         public async Task<ActionResult<IEnumerable<Favorite>>> GetFavorites()
         {
           if (_context.Favorites == null)
@@ -32,7 +32,7 @@ namespace UpMeetEventAPI.Controllers
         }
 
         // GET: api/Favorites/5
-        [HttpGet("{id}")]
+        [HttpGet("GetFavorites/{id}")]
         public async Task<ActionResult<Favorite>> GetFavorite(int id)
         {
           if (_context.Favorites == null)
@@ -49,40 +49,56 @@ namespace UpMeetEventAPI.Controllers
             return favorite;
         }
 
+        [HttpGet("{UserId:int}")]
+        public async Task<ActionResult<List<Favorite>>> GetUserFavorites(int UserId)
+        {
+            if (_context.Favorites == null)
+            {
+                return NotFound();
+            }
+            var favorite = await _context.Favorites.Where(f => f.Userid == UserId).ToListAsync();
+            if (favorite == null)
+            {
+                return NotFound();
+            }
+            return favorite;
+        }
+
+
         // PUT: api/Favorites/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutFavorite(int id, Favorite favorite)
-        {
-            if (id != favorite.Userid)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutFavorite(int id, Favorite favorite)
+        //{
+        //    if (id != favorite.Userid)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(favorite).State = EntityState.Modified;
+        //    _context.Entry(favorite).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!FavoriteExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!FavoriteExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Favorites
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("AddFavorite")]
         public async Task<ActionResult<Favorite>> PostFavorite(Favorite favorite)
         {
           if (_context.Favorites == null)
@@ -96,7 +112,7 @@ namespace UpMeetEventAPI.Controllers
         }
     
         // DELETE: api/Favorites/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteFavorite/{id}")]
         public async Task<IActionResult> DeleteFavorite(int id)
         {
             if (_context.Favorites == null)

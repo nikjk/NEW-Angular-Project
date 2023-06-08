@@ -1,0 +1,11 @@
+<h2>User Favorites</h2>
+<div *ngFor="let favorite of userFavorites">
+  <div *ngIf="favorite.isFavorite">
+    <p>Event ID: {{ favorite.eventid }}</p>
+    <p>Favorite ID: {{ favorite.favoriteId }}</p>
+    <p>Is Favorite: {{ favorite.isFavorite }}</p>
+    <button (click)="updateFavoriteStatus(favorite)">
+      Remove From Favorites
+    </button>
+  </div>
+</div>

@@ -20,7 +20,7 @@ namespace UpMeetEventAPI.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllUsers")]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             if (_context.Users == null)
@@ -30,7 +30,7 @@ namespace UpMeetEventAPI.Controllers
             return await _context.Users.ToListAsync();
         }
         /* get users */
-        [HttpGet("{id}")]
+        [HttpGet("GetUser/{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             if (_context.Users == null)
@@ -47,7 +47,7 @@ namespace UpMeetEventAPI.Controllers
             return user;
         }
 
-        [HttpPost]
+        [HttpPost("AddUser")]
         public async Task<ActionResult<User>> PostUsers(User user)
         {
             if (_context.Users == null)

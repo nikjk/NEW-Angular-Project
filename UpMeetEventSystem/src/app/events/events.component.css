@@ -1,0 +1,29 @@
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-table th {
+    background-color: #f2f2f2;
+}
+
+.event-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.event-table td:nth-child(1) {
+    width: 40%;
+    /* Adjust the width as needed */
+}
+
+.event-table td:nth-child(2) {
+    width: 60%;
+    /* Adjust the width as needed */
+}
