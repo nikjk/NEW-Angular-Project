@@ -23,7 +23,3 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #DDDDDD;
 }
-.my-container {
-    overflow-y: hidden;
-    /* or overflow-y: visible; */
-}

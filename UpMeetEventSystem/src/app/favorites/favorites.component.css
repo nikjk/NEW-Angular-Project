@@ -1,39 +1,36 @@
-/* Style for User Favorites section */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
 h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-/* Style for each favorite item */
-div.favorite-item {
-    border: 1px solid #ccc;
+.user-favorites {
+    width: 400px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-p {
-    margin: 0;
-    font-size: 1.2em;
+.user-favorites p {
+    margin-bottom: 10px;
 }
 
 button {
-    background-color: #f44336;
-    color: #fff;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1.2em;
 }
 
 button:hover {
-    background-color: #e53935;
-}
-
-button:active {
-    background-color: #c62828;
-}
-.my-container {
-    overflow-y: hidden;
-    /* or overflow-y: visible; */
+    background-color: #6765A4;
 }
